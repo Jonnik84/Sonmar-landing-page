@@ -15,6 +15,7 @@
     const max = document.documentElement.scrollHeight - innerHeight;
     bar.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
     updateSteps();
+    updateFlow();
   };
 
   /* ---------- Mobile menu ---------- */
@@ -36,7 +37,7 @@
       links.forEach((l) => l.classList.toggle('is-active', l.getAttribute('href') === '#' + en.target.id));
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  ['systems', 'designers', 'automation', 'contacts'].forEach((id) => sectionObserver.observe(document.getElementById(id)));
+  ['why', 'systems', 'partners', 'automation', 'contacts'].forEach((id) => sectionObserver.observe(document.getElementById(id)));
 
   /* ---------- Reveal on scroll ---------- */
   const revealObserver = new IntersectionObserver((entries) => {
@@ -61,6 +62,15 @@
       const sr = s.getBoundingClientRect();
       s.classList.toggle('is-lit', sr.top + sr.height / 2 < start);
     });
+  }
+
+  /* ---------- "Why" flow line ---------- */
+  const flow = $('#flow');
+  const flowLine = $('.flow__line', flow);
+  function updateFlow() {
+    const r = flow.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (innerHeight * 0.85 - r.top) / (innerHeight * 0.5)));
+    flowLine.style.setProperty('--p', p.toFixed(3));
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });

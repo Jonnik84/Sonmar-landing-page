@@ -110,6 +110,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
   font-size: clamp(36px, 5.2vw, 64px); line-height: 1.02; letter-spacing: -.045em;
   font-weight: 700; margin: 0;
 }
+.h2--sm { font-size: clamp(30px, 3.8vw, 46px); line-height: 1.08; }
 .lead { color: var(--muted-fg); font-size: 17px; line-height: 1.75; margin: 22px 0 0; max-width: 560px; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
@@ -322,6 +323,84 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 .step.is-lit .step__num { background: var(--primary); border-color: var(--primary); color: #fff; transform: scale(1.06); }
 .step h3 { margin: 6px 0 6px; font-size: 22px; font-weight: 500; letter-spacing: -.02em; }
 .step p { margin: 0; color: var(--muted-fg); font-size: 15px; }
+
+/* ============ Why SONMAR ============ */
+.why { background: linear-gradient(180deg, #fff, hsl(210 40% 97%)); overflow: hidden; }
+.why__statement {
+  font-size: clamp(30px, 4.2vw, 54px); line-height: 1.12; letter-spacing: -.04em; font-weight: 700;
+  margin: 0; max-width: 1040px;
+}
+.why__statement .mark {
+  background: linear-gradient(transparent 62%, hsl(201 80% 62% / .35) 62%);
+  background-size: 0% 100%; background-repeat: no-repeat;
+  transition: background-size 1.2s var(--ease) .4s;
+}
+.why__statement.is-in .mark { background-size: 100% 100%; }
+.why .lead { max-width: 680px; }
+
+.flow { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 72px; }
+.flow__line { position: absolute; left: 32px; right: 32px; top: 31px; height: 2px; background: var(--border); }
+.flow__line span {
+  position: absolute; inset: 0; background: linear-gradient(90deg, var(--primary), var(--cyan));
+  transform-origin: left; transform: scaleX(var(--p, 0)); transition: transform .2s linear;
+}
+.flow__line::after {
+  content: ""; position: absolute; left: calc(var(--p, 0) * 100% - 6px); top: -5px; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--cyan); box-shadow: 0 0 0 6px hsl(190 85% 55% / .2), 0 0 18px var(--cyan);
+  transition: left .2s linear;
+}
+.pillar { position: relative; }
+.pillar__icon {
+  position: relative; z-index: 1; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 18px;
+  background: #fff; color: var(--primary); border: 1px solid var(--border);
+  box-shadow: 0 12px 30px -16px hsl(205 60% 30% / .45);
+  transition: transform .5s var(--ease), background .4s, color .4s, border-color .4s;
+}
+.pillar__icon svg { width: 28px; height: 28px; }
+.pillar:hover .pillar__icon { transform: translateY(-6px) rotate(-6deg); background: var(--primary); color: #fff; border-color: var(--primary); }
+.pillar__num { display: block; margin: 26px 0 8px; font-weight: 800; font-size: 13px; letter-spacing: .08em; color: var(--primary); }
+.pillar h3 { margin: 0 0 10px; font-size: 21px; letter-spacing: -.02em; line-height: 1.25; }
+.pillar p { margin: 0; color: var(--muted-fg); font-size: 15px; line-height: 1.7; }
+@media (max-width: 960px) {
+  .flow { grid-template-columns: 1fr 1fr; gap: 44px 28px; }
+  .flow__line { display: none; }
+}
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; gap: 36px; margin-top: 48px; } }
+
+/* ============ Paths (clients / dealers) ============ */
+.paths__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.path {
+  position: relative; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; align-items: flex-start;
+  padding: 44px 40px 40px; border-radius: 20px; background: hsl(204 54% 96%); border: 1px solid hsl(205 50% 88%);
+  transition: transform .5s var(--ease), box-shadow .5s;
+}
+.path:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -30px hsl(205 60% 30% / .45); }
+.path h3 { font-size: clamp(26px, 2.6vw, 34px); line-height: 1.12; letter-spacing: -.035em; margin: 18px 0 16px; font-weight: 700; }
+.path p { margin: 0; color: var(--muted-fg); font-size: 16px; line-height: 1.7; }
+.path .btn { margin-top: auto; }
+.path__tag {
+  font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--primary);
+  padding: 6px 12px; border-radius: 999px; background: #fff; border: 1px solid hsl(205 70% 40% / .2);
+}
+.ticks { list-style: none; padding: 0; margin: 26px 0 36px; display: grid; gap: 12px; }
+.ticks li { position: relative; padding-left: 34px; font-weight: 600; font-size: 15px; line-height: 1.5; }
+.ticks li::before {
+  content: ""; position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center / 14px no-repeat;
+}
+.path--dark { background: var(--dark); border-color: var(--dark); color: #fff; }
+.path--dark p { color: hsl(210 20% 78%); }
+.path--dark .path__tag { background: hsl(205 70% 40% / .25); border-color: hsl(201 80% 62% / .4); color: var(--primary-300); }
+.path--dark .ticks li::before { background-color: var(--cyan); }
+.path__glow {
+  position: absolute; z-index: -1; width: 520px; height: 520px; right: -200px; top: -220px; border-radius: 50%;
+  background: radial-gradient(closest-side, hsl(201 80% 55% / .45), transparent); animation: drift 14s ease-in-out infinite alternate;
+}
+.btn--light { background: #fff; color: var(--dark); box-shadow: 0 12px 24px -12px #0008; }
+.btn--light:hover { background: hsl(202 76% 94%); }
+.btn--light:hover svg:last-child { transform: translateX(4px); }
+@media (max-width: 900px) { .paths__grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .path { padding: 32px 22px 28px; border-radius: 16px; } }
 
 /* ============ Automation ============ */
 .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 32px 0 0; }
