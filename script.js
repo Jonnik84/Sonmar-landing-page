@@ -14,7 +14,6 @@
     header.classList.toggle('is-scrolled', y > 10);
     const max = document.documentElement.scrollHeight - innerHeight;
     bar.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
-    updateSteps();
     updateFlow();
   };
 
@@ -50,19 +49,6 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   $$('.reveal').forEach((el) => revealObserver.observe(el));
 
-  /* ---------- Steps progress line ---------- */
-  const steps = $('#steps');
-  const stepItems = $$('.step', steps);
-  function updateSteps() {
-    const r = steps.getBoundingClientRect();
-    const start = innerHeight * 0.75;
-    const p = Math.min(1, Math.max(0, (start - r.top) / (r.height + innerHeight * 0.1)));
-    steps.style.setProperty('--p', p.toFixed(3));
-    stepItems.forEach((s) => {
-      const sr = s.getBoundingClientRect();
-      s.classList.toggle('is-lit', sr.top + sr.height / 2 < start);
-    });
-  }
 
   /* ---------- "Why" flow line ---------- */
   const flow = $('#flow');

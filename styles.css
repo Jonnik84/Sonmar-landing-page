@@ -303,27 +303,6 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 .split--center { align-items: center; grid-template-columns: .85fr 1.15fr; }
 @media (max-width: 900px) { .split, .split--center { grid-template-columns: 1fr; gap: 48px; } }
 
-/* ============ Steps ============ */
-.steps { list-style: none; margin: 0; padding: 0 0 0 0; position: relative; counter-reset: s; }
-.steps::before {
-  content: ""; position: absolute; left: 21px; top: 30px; bottom: 30px; width: 2px; background: var(--border);
-}
-.steps::after {
-  content: ""; position: absolute; left: 21px; top: 30px; width: 2px; height: calc((100% - 60px) * var(--p, 0));
-  background: linear-gradient(var(--primary), var(--cyan)); transition: height .2s linear;
-}
-.step { position: relative; display: flex; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--border); }
-.step:first-child { border-top: 1px solid var(--border); }
-.step__num {
-  position: relative; z-index: 1; flex: none; width: 44px; height: 44px; border-radius: 50%;
-  display: grid; place-items: center; font-weight: 800; font-size: 13px;
-  background: #fff; color: var(--primary); border: 2px solid var(--border);
-  transition: background .4s, color .4s, border-color .4s, transform .4s var(--ease);
-}
-.step.is-lit .step__num { background: var(--primary); border-color: var(--primary); color: #fff; transform: scale(1.06); }
-.step h3 { margin: 6px 0 6px; font-size: 22px; font-weight: 500; letter-spacing: -.02em; }
-.step p { margin: 0; color: var(--muted-fg); font-size: 15px; }
-
 /* ============ Why SONMAR ============ */
 .why { background: linear-gradient(180deg, #fff, hsl(210 40% 97%)); overflow: hidden; }
 .why__statement {
@@ -399,6 +378,20 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 .btn--light { background: #fff; color: var(--dark); box-shadow: 0 12px 24px -12px #0008; }
 .btn--light:hover { background: hsl(202 76% 94%); }
 .btn--light:hover svg:last-child { transform: translateX(4px); }
+.paths__grid--3 { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.paths__grid--3 .path { padding: 36px 30px 32px; }
+.paths__grid--3 .path h3 { font-size: clamp(24px, 2.1vw, 29px); }
+.path__top { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.path__num { font-weight: 800; font-size: 44px; line-height: 1; letter-spacing: -.04em; color: hsl(205 70% 40% / .14); transition: color .4s, transform .5s var(--ease); }
+.path:hover .path__num { color: hsl(205 70% 40% / .35); transform: translateY(-4px); }
+.path--dark .path__num, .path--blue .path__num { color: hsl(0 0% 100% / .14); }
+.path--dark:hover .path__num, .path--blue:hover .path__num { color: hsl(0 0% 100% / .35); }
+.path--blue { background: linear-gradient(150deg, var(--primary) 0%, hsl(205 75% 30%) 100%); border-color: var(--primary); color: #fff; }
+.path--blue p { color: hsl(205 60% 90%); }
+.path--blue .path__tag { background: hsl(0 0% 100% / .14); border-color: hsl(0 0% 100% / .3); color: #fff; }
+.path--blue .ticks li::before { background-color: #fff; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f6aa8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E"); }
+.path--blue .path__glow { background: radial-gradient(closest-side, hsl(190 85% 60% / .45), transparent); left: -220px; right: auto; top: auto; bottom: -260px; }
+@media (max-width: 1100px) { .paths__grid--3 { grid-template-columns: 1fr; } .paths__grid--3 .path h3 { font-size: 28px; } }
 @media (max-width: 900px) { .paths__grid { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .path { padding: 32px 22px 28px; border-radius: 16px; } }
 

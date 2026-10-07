@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=202610071749" />
+  <link rel="stylesheet" href="styles.css?v=202610071752" />
 </head>
 <body>
   <div class="progress" aria-hidden="true"><span></span></div>
@@ -33,7 +33,7 @@
       <nav class="nav" id="nav" aria-label="Основна навігація">
         <a href="#why">Чому SONMAR</a>
         <a href="#systems">Рішення</a>
-        <a href="#partners">Дилерам</a>
+        <a href="#partners">Співпраця</a>
         <a href="#automation">Автоматика</a>
         <a href="#contacts">Контакти</a>
         <a href="#contacts" class="nav__cta">Зв’язатися
@@ -219,18 +219,18 @@
     <section class="section paths" id="partners">
       <div class="container">
         <div class="section__head">
-          <h2 class="h2 reveal">Два шляхи до співпраці</h2>
-          <p class="section__sub reveal" style="--d:.1s">Беремося за проєкти, де потрібна справжня інженерія, і будуємо мережу дилерів, яким не соромно рекомендувати наше обладнання.</p>
+          <h2 class="h2 reveal">Три формати співпраці</h2>
+          <p class="section__sub reveal" style="--d:.1s">Замовник, проєктувальник чи дилер — кожен отримує від SONMAR те, що йому справді потрібно: рішення, дані або продукт, який легко продавати.</p>
         </div>
 
-        <div class="paths__grid">
+        <div class="paths__grid paths__grid--3">
           <article class="path reveal">
-            <span class="path__tag">Для замовників</span>
+            <div class="path__top"><span class="path__tag">Для замовників</span><span class="path__num">01</span></div>
             <h3>Цікавий проєкт? Нам саме таке й потрібно</h3>
             <p>Нестандартні умови, складна гідравліка, вимогливе пожежогасіння — це наша зона комфорту. Підбираємо обладнання, розробляємо проєктні рішення й автоматику та доводимо об’єкт до результату.</p>
             <ul class="ticks">
               <li>Підбір обладнання під реальну задачу, а не під склад</li>
-              <li>Проєктні рішення, 3D-моделі та дані для документації</li>
+              <li>Проєктні рішення під ваш об’єкт</li>
               <li>Виробництво, пусконалагодження й сервіс</li>
             </ul>
             <a href="#contacts" class="btn btn--primary magnetic">Обговорити проєкт
@@ -238,9 +238,24 @@
             </a>
           </article>
 
-          <article class="path path--dark reveal" style="--d:.12s" id="dealers">
+          <article class="path path--blue reveal" style="--d:.1s" id="designers">
             <div class="path__glow" aria-hidden="true"></div>
-            <span class="path__tag">Для дилерів</span>
+            <div class="path__top"><span class="path__tag">Для проєктувальників</span><span class="path__num">02</span></div>
+            <h3>Закладіть SONMAR у проєкт — решту беремо на себе</h3>
+            <p>Передаємо інженерні дані та 3D-моделі станцій, щоб обладнання SONMAR було враховано в проєктній документації. Технічну частину розробляє наша команда, а ви маєте інженера на зв’язку.</p>
+            <ul class="ticks">
+              <li>Інженерна розробка рішення та автоматики</li>
+              <li>3D-моделі станцій для вашої роботи</li>
+              <li>Дані для проєктної документації</li>
+            </ul>
+            <a href="mailto:info@sonmar.com.ua?subject=%D0%94%D0%B0%D0%BD%D1%96%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82%D1%83" class="btn btn--light magnetic">Отримати дані
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+          </article>
+
+          <article class="path path--dark reveal" style="--d:.2s" id="dealers">
+            <div class="path__glow" aria-hidden="true"></div>
+            <div class="path__top"><span class="path__tag">Для дилерів</span><span class="path__num">03</span></div>
             <h3>Станьте дилером SONMAR</h3>
             <p>Шукаємо партнерів по всій Україні. Даємо продукт, який легко продавати, і команду, яка закриє будь-яке технічне питання вашого клієнта.</p>
             <ul class="ticks">
@@ -254,42 +269,6 @@
             </a>
           </article>
         </div>
-      </div>
-    </section>
-
-    <!-- ===== Designers ===== -->
-    <section class="section section--muted" id="designers">
-      <div class="container split">
-        <div class="split__text">
-          <span class="eyebrow reveal"><i class="dot"></i> Інженерна підтримка</span>
-          <h2 class="h2 h2--sm reveal">Проєктувальникам — дані та 3D-моделі</h2>
-          <p class="lead reveal" style="--d:.1s">Передаємо інженерні дані та 3D-моделі станцій, щоб обладнання SONMAR було враховано в проєктній документації.</p>
-          <p class="lead reveal" style="--d:.15s">Технічну частину розробляє наша команда. Взаємодіємо з проєктувальником під час підготовки рішення.</p>
-        </div>
-
-        <ol class="steps" id="steps">
-          <li class="step reveal">
-            <span class="step__num">01</span>
-            <div>
-              <h3>Інженерна розробка</h3>
-              <p>Технічні рішення та автоматика для насосних систем.</p>
-            </div>
-          </li>
-          <li class="step reveal" style="--d:.1s">
-            <span class="step__num">02</span>
-            <div>
-              <h3>3D-моделі обладнання</h3>
-              <p>Моделі станцій для роботи проєктувальника.</p>
-            </div>
-          </li>
-          <li class="step reveal" style="--d:.2s">
-            <span class="step__num">03</span>
-            <div>
-              <h3>Дані для проєкту</h3>
-              <p>Матеріали, необхідні для включення обладнання в документацію.</p>
-            </div>
-          </li>
-        </ol>
       </div>
     </section>
 
@@ -400,6 +379,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="script.js?v=202610071749" defer></script>
+  <script src="script.js?v=202610071752" defer></script>
 </body>
 </html>
