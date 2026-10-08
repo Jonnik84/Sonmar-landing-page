@@ -28,6 +28,20 @@
   $$('a', nav).forEach((a) => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', (e) => e.key === 'Escape' && setMenu(false));
 
+  /* ---------- Language switcher ---------- */
+  const lang = $('#lang');
+  const langBtn = $('.lang__btn', lang);
+  const setLang = (open) => {
+    langBtn.setAttribute('aria-expanded', open);
+    lang.classList.toggle('is-open', open);
+  };
+  langBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setLang(langBtn.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('click', (e) => { if (!lang.contains(e.target)) setLang(false); });
+  document.addEventListener('keydown', (e) => e.key === 'Escape' && setLang(false));
+
   /* ---------- Active nav link ---------- */
   const links = $$('.nav a:not(.nav__cta)');
   const sectionObserver = new IntersectionObserver((entries) => {
@@ -200,7 +214,7 @@
     btn.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(btn.dataset.copy);
-        notify('Email скопійовано ✓');
+        notify(btn.dataset.copied);
       } catch {
         notify(btn.dataset.copy);
       }
