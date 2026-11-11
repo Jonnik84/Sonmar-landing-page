@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="../styles.css?v=202610081537" rel="stylesheet"/>
+<link href="../styles.css?v=202611110913" rel="stylesheet"/>
 </head>
 <body>
 <div aria-hidden="true" class="progress"><span></span></div>
@@ -39,10 +39,10 @@
 <span>SONMAR</span>
 </a>
 <nav aria-label="Navigare principală" class="nav" id="nav">
-<a href="#why">De ce SONMAR</a>
+<a href="#brand">Catalog</a>
 <a href="#systems">Soluții</a>
 <a href="#partners">Colaborare</a>
-<a href="#automation">Automatizare</a>
+<a href="#downloads">Documente</a>
 <a href="#contacts">Contacte</a>
 <a class="nav__cta" href="#contacts">Contactați-ne
           <svg aria-hidden="true" height="16" viewbox="0 0 24 24" width="16"><path d="M7 17 17 7M8 7h9v9"></path></svg>
@@ -161,6 +161,56 @@
 <p>Vedem sistemul în ansamblu: hidraulică, automatizare, exploatare. Aceasta este poziția noastră unică pe piață — și motivul pentru care clienții vin la noi cu sarcini complexe.</p>
 </article>
 </div>
+</div>
+</section>
+<!-- ===== Own brand: SONMAR by PRODN (дані: data/catalog.json з Directus) ===== -->
+<section class="brand" data-catalog="../data/catalog.json" id="brand">
+<div aria-hidden="true" class="brand__bg">
+<svg class="brand__lines" preserveaspectratio="none" viewbox="0 0 1440 600">
+<path d="M0 420 C 300 340 520 520 820 430 S 1260 320 1440 380"></path>
+<path d="M0 470 C 320 390 560 560 860 470 S 1280 360 1440 420"></path>
+<path d="M0 520 C 340 440 600 600 900 510 S 1300 400 1440 460"></path>
+</svg>
+<div class="brand__glow"></div>
+</div>
+<div class="container">
+<div class="brand__head">
+<div>
+<span class="eyebrow eyebrow--dark reveal"><i class="dot"></i> Marcă comercială proprie</span>
+<h2 class="brand__title reveal">SONMAR <span>by PRODN</span></h2>
+</div>
+<p class="brand__lead reveal" style="--d:.1s">Pompe inteligente cu invertor sub marca noastră — direct de la producător, cu documentație și service. Presiune constantă, economie de energie și funcționare silențioasă — la fiecare model.</p>
+</div>
+<ul class="perks reveal" style="--d:.15s">
+<li>Economie de energie</li><li>Presiune constantă</li><li>Protecție la îngheț</li><li>Nivel redus de zgomot</li><li>Protecție pe mai multe niveluri</li><li>Gamă largă de tensiune</li>
+</ul>
+<div class="brand__grid">
+<article class="catalog-card reveal" hidden="" id="catalogCard">
+<a class="catalog-card__cover" data-bind="open" rel="noopener" target="_blank">
+<img alt="Coperta catalogului SONMAR by PRODN" data-bind="cover" height="640" loading="lazy" width="468"/>
+<span class="catalog-card__badge" data-bind="version"></span>
+</a>
+<div class="catalog-card__body">
+<span class="catalog-card__tag">Catalog cu prețuri</span>
+<h3>Catalog SONMAR by PRODN</h3>
+<p>Gama de modele, caracteristici tehnice, curbe de performanță și dimensiuni — într-un singur fișier.</p>
+<p class="catalog-card__meta" data-bind="meta"></p>
+<div class="catalog-card__actions">
+<a class="btn btn--light magnetic" data-bind="open" rel="noopener" target="_blank">Deschideți catalogul
+                  <svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a class="catalog-card__dl" data-bind="download">
+<svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg>
+                  Descărcați PDF
+                </a>
+</div>
+</div>
+</article>
+<div aria-live="polite" class="families" id="families"></div>
+</div>
+<a class="brand__more reveal" href="#downloads">Toată documentația: instrucțiuni de montaj și configurare
+          <svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
 </div>
 </section>
 <!-- ===== Systems ===== -->
@@ -334,6 +384,23 @@
 </div>
 </div>
 </section>
+<!-- ===== Downloads (дані: data/catalog.json з Directus) ===== -->
+<section class="section downloads" id="downloads">
+<div class="container">
+<div class="section__head">
+<h2 class="h2 reveal">Documentație</h2>
+<p class="section__sub reveal" style="--d:.1s">Cataloage, instrucțiuni de montaj și configurare — doar versiunile actuale. Actualizate automat. Documente în limba ucraineană.</p>
+</div>
+<div class="dl-filters reveal">
+<div aria-label="Tip document" class="dl-chips" id="dlTypes" role="group"></div>
+<div aria-label="Serie" class="dl-chips dl-chips--sm" id="dlFamilies" role="group"></div>
+</div>
+<div aria-live="polite" class="dl-grid" id="dlGrid"></div>
+<p class="dl-empty" hidden="" id="dlEmpty">Nu există încă documente pentru acest filtru.</p>
+<div class="dl-more"><button class="btn btn--outline" hidden="" id="dlMore">Afișați toate</button></div>
+</div>
+<template data-t-all="Toate" data-t-all-series="Toate seriile" data-t-docs="Documente" data-t-download="Descarcă" data-t-kb="KB" data-t-mb="MB" data-t-models="Modele" data-t-more="Afișați toate" data-t-open="Deschide" data-t-series="Serie" data-t-type-cad="CAD/BIM" data-t-type-catalog="Catalog" data-t-type-install="Instrucțiuni de montaj" data-t-type-leaflet="Broșură" data-t-type-parts="Schema pieselor de schimb" data-t-type-quick="Pornire rapidă" data-t-type-setup="Instrucțiuni de configurare" data-t-type-tech="Date tehnice" data-t-type-video="Video" data-t-version="versiunea" id="dlText"></template>
+</section>
 <!-- ===== Contacts ===== -->
 <section class="contacts" id="contacts">
 <svg aria-hidden="true" class="contacts__wave" preserveaspectratio="none" viewbox="0 0 1440 80">
@@ -386,6 +453,6 @@
 <button aria-label="Fotografia următoare" class="lightbox__nav lightbox__nav--next">›</button>
 </div>
 <div aria-live="polite" class="toast" id="toast" role="status"></div>
-<script defer="" src="../script.js?v=202610081537"></script>
+<script defer="" src="../script.js?v=202611110913"></script>
 </body>
 </html>

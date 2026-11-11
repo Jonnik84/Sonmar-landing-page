@@ -50,7 +50,7 @@
       links.forEach((l) => l.classList.toggle('is-active', l.getAttribute('href') === '#' + en.target.id));
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  ['why', 'systems', 'partners', 'automation', 'contacts'].forEach((id) => sectionObserver.observe(document.getElementById(id)));
+  ['brand', 'systems', 'partners', 'downloads', 'contacts'].forEach((id) => sectionObserver.observe(document.getElementById(id)));
 
   /* ---------- Reveal on scroll ---------- */
   const revealObserver = new IntersectionObserver((entries) => {
@@ -200,6 +200,128 @@
     if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1));
     touchX = null;
   });
+
+  /* ---------- Catalog & downloads (data/catalog.json, синхронізується з Directus) ---------- */
+  const brand = $('#brand');
+  const dlText = $('#dlText');
+  if (brand && dlText) {
+    const lang = document.documentElement.lang || 'uk';
+    const src = brand.dataset.catalog;
+    const base = src.replace(/data\/catalog\.json$/, '');
+    const t = (k) => dlText.dataset['t' + k.replace(/(^|-)(\w)/g, (m, a, c) => c.toUpperCase())] || k;
+    const TYPE_KEY = {
+      'Каталог': 'type-catalog', 'Листівка/буклет': 'type-leaflet', 'Технічні дані': 'type-tech',
+      'Інструкція з монтажу': 'type-install', 'Інструкція з настройки': 'type-setup', 'CAD/BIM інформація': 'type-cad',
+      'Схема запчастин': 'type-parts', 'Інструкція «Швидкий старт»': 'type-quick', 'video': 'type-video',
+    };
+    const typeLabel = (ty) => (TYPE_KEY[ty] ? t(TYPE_KEY[ty]) : ty);
+    const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const tr = (obj) => (obj && (obj[lang] || obj.uk)) || '';
+    const size = (b) => {
+      if (!b) return '';
+      const mb = b / 1048576;
+      const fmt = (n) => n.toLocaleString(lang, { maximumFractionDigits: 1 });
+      return mb >= 1 ? `${fmt(mb)} ${t('mb')}` : `${fmt(Math.max(1, Math.round(b / 1024)))} ${t('kb')}`;
+    };
+    const date = (d) => (d ? new Date(d).toLocaleDateString(lang, { day: '2-digit', month: '2-digit', year: 'numeric' }) : '');
+    const asset = (p) => (/^https?:/.test(p) ? p : base + p);
+    const ICON_DL = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" /></svg>';
+    const ICON_EYE = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" /><circle cx="12" cy="12" r="3" /></svg>';
+
+    const state = { type: 'all', family: 'all', expanded: false };
+    const PAGE = 6;
+    let DATA = null;
+
+    const renderCatalog = (c) => {
+      const card = $('#catalogCard');
+      if (!c) return;
+      $$('[data-bind="open"]', card).forEach((a) => { a.href = c.url; });
+      $('[data-bind="download"]', card).href = c.download || c.url;
+      const cover = $('[data-bind="cover"]', card);
+      if (c.cover) cover.src = asset(c.cover);
+      else cover.hidden = true;
+      $('[data-bind="version"]', card).textContent = c.version || '';
+      $('[data-bind="meta"]', card).textContent = [c.format, size(c.size), (c.lang || []).join(', ').toUpperCase()].filter(Boolean).join(' · ');
+      card.hidden = false;
+    };
+
+    const renderFamilies = (fams) => {
+      $('#families').innerHTML = fams.map((f, i) => `
+        <article class="fam" style="--i:${i}">
+          <div class="fam__img"><img src="${esc(asset(f.image))}" alt="SONMAR ${esc(f.code)}" loading="lazy" /></div>
+          <div class="fam__body">
+            <span class="fam__code">${esc(f.code)}</span>
+            <h3 class="fam__title">${esc(tr(f.title))}</h3>
+            <ul class="fam__specs">${(tr(f.specs) || []).map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+            <p class="fam__feature">${esc(tr(f.feature))}</p>
+            <p class="fam__models"><span>${esc(t('models'))}:</span> ${f.models.map(esc).join(' · ')}</p>
+            ${f.docs ? `<a class="fam__docs" href="#downloads" data-family="${esc(f.code)}">${esc(t('docs'))} <b>${f.docs}</b> ${ICON_DL}</a>` : ''}
+          </div>
+        </article>`).join('');
+      $$('.fam__docs').forEach((a) => a.addEventListener('click', () => {
+        state.family = a.dataset.family; state.type = 'all'; state.expanded = true; renderDocs();
+      }));
+    };
+
+    const chip = (key, label, n, active) =>
+      `<button type="button" class="dl-chip${active ? ' is-active' : ''}" data-key="${esc(key)}" aria-pressed="${active}">${esc(label)}${n != null ? ` <span>${n}</span>` : ''}</button>`;
+
+    const renderDocs = () => {
+      const docs = DATA.documents;
+      const byFamily = docs.filter((d) => state.family === 'all' || d.families.includes(state.family));
+      const types = [...new Set(docs.map((d) => d.type))];
+      $('#dlTypes').innerHTML = chip('all', t('all'), byFamily.length, state.type === 'all') +
+        types.map((ty) => chip(ty, typeLabel(ty), byFamily.filter((d) => d.type === ty).length, state.type === ty)).join('');
+      const fams = DATA.families.map((f) => f.code).filter((c) => docs.some((d) => d.families.includes(c)));
+      $('#dlFamilies').innerHTML = chip('all', t('all-series'), null, state.family === 'all') +
+        fams.map((c) => chip(c, c, null, state.family === c)).join('');
+
+      const list = byFamily.filter((d) => state.type === 'all' || d.type === state.type);
+      const shown = state.expanded ? list : list.slice(0, PAGE);
+      $('#dlGrid').innerHTML = shown.map((d, i) => {
+        const tags = d.families.filter((c) => c !== d.title);
+        const meta = [d.version && `${t('version')} ${d.version}`, date(d.date), size(d.size), (d.lang || []).join(', ').toUpperCase()].filter(Boolean);
+        return `
+        <article class="doc" style="--i:${i}">
+          <div class="doc__icon"><span>${esc(d.format)}</span></div>
+          <div class="doc__body">
+            <span class="doc__type">${esc(typeLabel(d.type))}</span>
+            <h3 class="doc__title">${esc(d.title)}</h3>
+            ${tags.length ? `<p class="doc__tags">${tags.map((c) => `<span>${esc(c)}</span>`).join('')}</p>` : ''}
+            <p class="doc__meta">${meta.map(esc).join(' · ')}</p>
+          </div>
+          <div class="doc__actions">
+            <a href="${esc(d.url)}" target="_blank" rel="noopener" aria-label="${esc(t('open'))}: ${esc(d.title)}" title="${esc(t('open'))}">${ICON_EYE}</a>
+            ${d.download ? `<a href="${esc(d.download)}" class="doc__dl" aria-label="${esc(t('download'))}: ${esc(d.title)}" title="${esc(t('download'))}">${ICON_DL}</a>` : ''}
+          </div>
+        </article>`;
+      }).join('');
+      $('#dlEmpty').hidden = list.length > 0;
+      const more = $('#dlMore');
+      more.hidden = state.expanded || list.length <= PAGE;
+      more.textContent = `${t('more')} (${list.length})`;
+    };
+
+    $('#dlTypes').addEventListener('click', (e) => {
+      const b = e.target.closest('.dl-chip'); if (!b) return;
+      state.type = b.dataset.key; renderDocs();
+    });
+    $('#dlFamilies').addEventListener('click', (e) => {
+      const b = e.target.closest('.dl-chip'); if (!b) return;
+      state.family = b.dataset.key; state.type = 'all'; renderDocs();
+    });
+    $('#dlMore').addEventListener('click', () => { state.expanded = true; renderDocs(); });
+
+    fetch(src, { cache: 'no-cache' })
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((data) => {
+        DATA = data;
+        renderCatalog(data.catalog);
+        renderFamilies(data.families || []);
+        renderDocs();
+      })
+      .catch(() => { $('#downloads').hidden = true; $('.brand__more').hidden = true; });
+  }
 
   /* ---------- Copy email ---------- */
   const toast = $('#toast');

@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=202610081537" />
+  <link rel="stylesheet" href="styles.css?v=202611110913" />
 </head>
 <body>
   <div class="progress" aria-hidden="true"><span></span></div>
@@ -38,10 +38,10 @@
         <span>SONMAR</span>
       </a>
       <nav class="nav" id="nav" aria-label="Основна навігація">
-        <a href="#why">Чому SONMAR</a>
+        <a href="#brand">Каталог</a>
         <a href="#systems">Рішення</a>
         <a href="#partners">Співпраця</a>
-        <a href="#automation">Автоматика</a>
+        <a href="#downloads">Документи</a>
         <a href="#contacts">Контакти</a>
         <a href="#contacts" class="nav__cta">Зв’язатися
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
@@ -170,6 +170,61 @@
             <p>Бачимо систему цілком: гідравліка, автоматика, експлуатація. Це наша унікальна позиція на ринку — і причина, чому до нас приходять зі складними задачами.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== Own brand: SONMAR by PRODN (дані: data/catalog.json з Directus) ===== -->
+    <section class="brand" id="brand" data-catalog="data/catalog.json">
+      <div class="brand__bg" aria-hidden="true">
+        <svg class="brand__lines" viewBox="0 0 1440 600" preserveAspectRatio="none">
+          <path d="M0 420 C 300 340 520 520 820 430 S 1260 320 1440 380" />
+          <path d="M0 470 C 320 390 560 560 860 470 S 1280 360 1440 420" />
+          <path d="M0 520 C 340 440 600 600 900 510 S 1300 400 1440 460" />
+        </svg>
+        <div class="brand__glow"></div>
+      </div>
+      <div class="container">
+        <div class="brand__head">
+          <div>
+            <span class="eyebrow eyebrow--dark reveal"><i class="dot"></i> Власна торгова марка</span>
+            <h2 class="brand__title reveal">SONMAR <span>by PRODN</span></h2>
+          </div>
+          <p class="brand__lead reveal" style="--d:.1s">Інтелектуальні інверторні насоси під нашою маркою — напряму від виробника, з документацією українською та сервісом в Україні. Постійний тиск, економія електроенергії й тиха робота — у кожній моделі.</p>
+        </div>
+
+        <ul class="perks reveal" style="--d:.15s">
+          <li>Енергозбереження</li><li>Постійний тиск</li><li>Захист від замерзання</li><li>Низький рівень шуму</li><li>Багаторівневий захист</li><li>Широкий діапазон напруги</li>
+        </ul>
+
+        <div class="brand__grid">
+          <article class="catalog-card reveal" id="catalogCard" hidden>
+            <a class="catalog-card__cover" data-bind="open" target="_blank" rel="noopener">
+              <img data-bind="cover" alt="Обкладинка каталогу SONMAR by PRODN" width="468" height="640" loading="lazy" />
+              <span class="catalog-card__badge" data-bind="version"></span>
+            </a>
+            <div class="catalog-card__body">
+              <span class="catalog-card__tag">Прайс-каталог</span>
+              <h3>Каталог SONMAR by PRODN</h3>
+              <p>Модельний ряд, технічні характеристики, криві продуктивності та габаритні розміри — в одному файлі.</p>
+              <p class="catalog-card__meta" data-bind="meta"></p>
+              <div class="catalog-card__actions">
+                <a class="btn btn--light magnetic" data-bind="open" target="_blank" rel="noopener">Відкрити каталог
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </a>
+                <a class="catalog-card__dl" data-bind="download">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" /></svg>
+                  Завантажити PDF
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <div class="families" id="families" aria-live="polite"></div>
+        </div>
+
+        <a href="#downloads" class="brand__more reveal">Уся документація: інструкції з монтажу та налаштування
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </a>
       </div>
     </section>
 
@@ -353,6 +408,31 @@
       </div>
     </section>
 
+    <!-- ===== Downloads (дані: data/catalog.json з Directus) ===== -->
+    <section class="section downloads" id="downloads">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2 reveal">Документація</h2>
+          <p class="section__sub reveal" style="--d:.1s">Каталоги, інструкції з монтажу та налаштування — лише актуальні версії. Оновлюються автоматично.</p>
+        </div>
+        <div class="dl-filters reveal">
+          <div class="dl-chips" id="dlTypes" role="group" aria-label="Тип документа"></div>
+          <div class="dl-chips dl-chips--sm" id="dlFamilies" role="group" aria-label="Серія"></div>
+        </div>
+        <div class="dl-grid" id="dlGrid" aria-live="polite"></div>
+        <p class="dl-empty" id="dlEmpty" hidden>Для цього фільтра документів поки немає.</p>
+        <div class="dl-more"><button class="btn btn--outline" id="dlMore" hidden>Показати всі</button></div>
+      </div>
+      <template id="dlText"
+        data-t-all="Усі" data-t-all-series="Усі серії" data-t-open="Відкрити" data-t-download="Завантажити"
+        data-t-more="Показати всі" data-t-version="версія" data-t-mb="МБ" data-t-kb="КБ" data-t-docs="Документи"
+        data-t-models="Моделі" data-t-series="Серія"
+        data-t-type-catalog="Каталог" data-t-type-leaflet="Буклет" data-t-type-tech="Технічні дані"
+        data-t-type-install="Інструкція з монтажу" data-t-type-setup="Інструкція з налаштування"
+        data-t-type-cad="CAD/BIM" data-t-type-parts="Схема запчастин" data-t-type-quick="Швидкий старт"
+        data-t-type-video="Відео"></template>
+    </section>
+
     <!-- ===== Contacts ===== -->
     <section class="contacts" id="contacts">
       <svg class="contacts__wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
@@ -410,6 +490,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="script.js?v=202610081537" defer></script>
+  <script src="script.js?v=202611110913" defer></script>
 </body>
 </html>

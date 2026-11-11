@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="../styles.css?v=202610081537" rel="stylesheet"/>
+<link href="../styles.css?v=202611110913" rel="stylesheet"/>
 </head>
 <body>
 <div aria-hidden="true" class="progress"><span></span></div>
@@ -39,10 +39,10 @@
 <span>SONMAR</span>
 </a>
 <nav aria-label="Główna nawigacja" class="nav" id="nav">
-<a href="#why">Dlaczego SONMAR</a>
+<a href="#brand">Katalog</a>
 <a href="#systems">Rozwiązania</a>
 <a href="#partners">Współpraca</a>
-<a href="#automation">Automatyka</a>
+<a href="#downloads">Dokumenty</a>
 <a href="#contacts">Kontakt</a>
 <a class="nav__cta" href="#contacts">Napisz do nas
           <svg aria-hidden="true" height="16" viewbox="0 0 24 24" width="16"><path d="M7 17 17 7M8 7h9v9"></path></svg>
@@ -161,6 +161,56 @@
 <p>Widzimy system w całości: hydraulika, automatyka, eksploatacja. To nasza unikalna pozycja na rynku — i powód, dla którego przychodzą do nas z trudnymi zadaniami.</p>
 </article>
 </div>
+</div>
+</section>
+<!-- ===== Own brand: SONMAR by PRODN (дані: data/catalog.json з Directus) ===== -->
+<section class="brand" data-catalog="../data/catalog.json" id="brand">
+<div aria-hidden="true" class="brand__bg">
+<svg class="brand__lines" preserveaspectratio="none" viewbox="0 0 1440 600">
+<path d="M0 420 C 300 340 520 520 820 430 S 1260 320 1440 380"></path>
+<path d="M0 470 C 320 390 560 560 860 470 S 1280 360 1440 420"></path>
+<path d="M0 520 C 340 440 600 600 900 510 S 1300 400 1440 460"></path>
+</svg>
+<div class="brand__glow"></div>
+</div>
+<div class="container">
+<div class="brand__head">
+<div>
+<span class="eyebrow eyebrow--dark reveal"><i class="dot"></i> Własna marka handlowa</span>
+<h2 class="brand__title reveal">SONMAR <span>by PRODN</span></h2>
+</div>
+<p class="brand__lead reveal" style="--d:.1s">Inteligentne pompy falownikowe pod naszą marką — bezpośrednio od producenta, z dokumentacją i serwisem. Stałe ciśnienie, oszczędność energii i cicha praca — w każdym modelu.</p>
+</div>
+<ul class="perks reveal" style="--d:.15s">
+<li>Oszczędność energii</li><li>Stałe ciśnienie</li><li>Ochrona przed zamarzaniem</li><li>Niski poziom hałasu</li><li>Wielopoziomowa ochrona</li><li>Szeroki zakres napięcia</li>
+</ul>
+<div class="brand__grid">
+<article class="catalog-card reveal" hidden="" id="catalogCard">
+<a class="catalog-card__cover" data-bind="open" rel="noopener" target="_blank">
+<img alt="Okładka katalogu SONMAR by PRODN" data-bind="cover" height="640" loading="lazy" width="468"/>
+<span class="catalog-card__badge" data-bind="version"></span>
+</a>
+<div class="catalog-card__body">
+<span class="catalog-card__tag">Katalog z cennikiem</span>
+<h3>Katalog SONMAR by PRODN</h3>
+<p>Typoszereg, dane techniczne, krzywe wydajności i wymiary — w jednym pliku.</p>
+<p class="catalog-card__meta" data-bind="meta"></p>
+<div class="catalog-card__actions">
+<a class="btn btn--light magnetic" data-bind="open" rel="noopener" target="_blank">Otwórz katalog
+                  <svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a class="catalog-card__dl" data-bind="download">
+<svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg>
+                  Pobierz PDF
+                </a>
+</div>
+</div>
+</article>
+<div aria-live="polite" class="families" id="families"></div>
+</div>
+<a class="brand__more reveal" href="#downloads">Cała dokumentacja: instrukcje montażu i konfiguracji
+          <svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
 </div>
 </section>
 <!-- ===== Systems ===== -->
@@ -334,6 +384,23 @@
 </div>
 </div>
 </section>
+<!-- ===== Downloads (дані: data/catalog.json з Directus) ===== -->
+<section class="section downloads" id="downloads">
+<div class="container">
+<div class="section__head">
+<h2 class="h2 reveal">Dokumentacja</h2>
+<p class="section__sub reveal" style="--d:.1s">Katalogi, instrukcje montażu i konfiguracji — tylko aktualne wersje. Aktualizowane automatycznie. Dokumenty w języku ukraińskim.</p>
+</div>
+<div class="dl-filters reveal">
+<div aria-label="Typ dokumentu" class="dl-chips" id="dlTypes" role="group"></div>
+<div aria-label="Seria" class="dl-chips dl-chips--sm" id="dlFamilies" role="group"></div>
+</div>
+<div aria-live="polite" class="dl-grid" id="dlGrid"></div>
+<p class="dl-empty" hidden="" id="dlEmpty">Brak dokumentów dla tego filtra.</p>
+<div class="dl-more"><button class="btn btn--outline" hidden="" id="dlMore">Pokaż wszystkie</button></div>
+</div>
+<template data-t-all="Wszystkie" data-t-all-series="Wszystkie serie" data-t-docs="Dokumenty" data-t-download="Pobierz" data-t-kb="KB" data-t-mb="MB" data-t-models="Modele" data-t-more="Pokaż wszystkie" data-t-open="Otwórz" data-t-series="Seria" data-t-type-cad="CAD/BIM" data-t-type-catalog="Katalog" data-t-type-install="Instrukcja montażu" data-t-type-leaflet="Ulotka" data-t-type-parts="Schemat części zamiennych" data-t-type-quick="Szybki start" data-t-type-setup="Instrukcja konfiguracji" data-t-type-tech="Dane techniczne" data-t-type-video="Wideo" data-t-version="wersja" id="dlText"></template>
+</section>
 <!-- ===== Contacts ===== -->
 <section class="contacts" id="contacts">
 <svg aria-hidden="true" class="contacts__wave" preserveaspectratio="none" viewbox="0 0 1440 80">
@@ -386,6 +453,6 @@
 <button aria-label="Następne zdjęcie" class="lightbox__nav lightbox__nav--next">›</button>
 </div>
 <div aria-live="polite" class="toast" id="toast" role="status"></div>
-<script defer="" src="../script.js?v=202610081537"></script>
+<script defer="" src="../script.js?v=202611110913"></script>
 </body>
 </html>

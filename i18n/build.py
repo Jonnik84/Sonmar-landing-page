@@ -18,7 +18,7 @@ SITE = 'https://sonmar.com.ua'
 LANGS = {'pl': ('PL', 'pl_PL'), 'ro': ('RO', 'ro_RO'), 'ru': ('RU', 'ru_RU')}
 CYR = re.compile(r'[А-Яа-яЄєІіЇїҐґ]')
 ATTRS = ('alt', 'aria-label', 'content', 'title', 'data-copied')
-URL_ATTRS = ('href', 'src', 'data-full')
+URL_ATTRS = ('href', 'src', 'data-full', 'data-catalog')
 EXTERNAL = re.compile(r'^(#|/|[a-z]+:)', re.I)
 
 
@@ -54,7 +54,7 @@ def build(lang, source):
             node.replace_with(new)
 
     for el in soup.find_all(True):
-        for a in ATTRS:
+        for a in list(ATTRS) + [k for k in el.attrs if k.startswith('data-t-')]:
             if el.has_attr(a):
                 el[a] = tr(el[a], lang, missing)
         for a in URL_ATTRS:

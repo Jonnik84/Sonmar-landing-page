@@ -34,3 +34,21 @@ python3 -m http.server 8000
 3. Закомітьте `index.html`, `i18n/` та папки `pl/`, `ro/`, `ru/`.
 
 Скрипт зупиниться й покаже рядки без перекладу. Файли в `pl/`, `ro/`, `ru/` вручну не редагуйте.
+
+## Каталог і документація з Directus
+
+Блоки «Власна торгова марка» та «Документація» беруть дані з `data/catalog.json`.
+Його створює `catalog/sync.py` з Directus (`directus.sonmar.com.ua`):
+
+- серії й моделі — з `product_family` / `product_groups` / `products` (заводські моделі на сайт не потрапляють);
+- документи — з `resources` + `resource_variants`, лише найновіша версія кожного документа
+  і лише файли, відкриті в Directus для всіх; тип «Проблеми та рішення» не публікується;
+- обкладинка каталогу генерується автоматично з першої сторінки PDF.
+
+Фото, опис і характеристики серій — у `catalog/families.py` (джерело — прайс-каталог 2026.1).
+Нова серія з'явиться на сайті після того, як для неї додати запис у цей файл.
+
+Оновлення: GitHub Action `Sync catalog` кожні 6 годин (або вручну: Actions → Sync catalog → Run workflow).
+Потрібен секрет репозиторію `DIRECTUS_TOKEN` — статичний токен користувача Directus з правом лише на читання
+колекцій `product_family`, `product_groups`, `products`, `brands`, `resources`, `resource_variants`,
+`entity_resources` і `directus_files`.

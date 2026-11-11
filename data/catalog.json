@@ -1,0 +1,504 @@
+{
+ "generated": "2026-11-11T09:13:51.404847+00:00",
+ "catalog": {
+  "url": "https://directus.sonmar.com.ua/assets/e0700597-b563-4b04-8cd1-6e2b5ed1533a",
+  "download": "https://directus.sonmar.com.ua/assets/e0700597-b563-4b04-8cd1-6e2b5ed1533a?download",
+  "size": 20873226,
+  "format": "PDF",
+  "id": "7f82a95c-8671-48bd-b012-2caee0370c69",
+  "title": "SONMAR-prodn",
+  "type": "Каталог",
+  "version": "2026.1",
+  "date": "2026-01-01",
+  "lang": [
+   "ua"
+  ],
+  "families": [
+   "BA",
+   "BB",
+   "BBZ",
+   "PNC",
+   "PRZ",
+   "VFS"
+  ],
+  "cover": "images/catalog/e0700597-b563-4b04-8cd1-6e2b5ed1533a.webp"
+ },
+ "families": [
+  {
+   "code": "PNC",
+   "brand": "SONMAR-PRODN",
+   "image": "images/products/pnc.webp",
+   "models": [
+    "PNC 6-4",
+    "PNC 8-3",
+    "PNC 20-3",
+    "PNCE 4-45"
+   ],
+   "title": {
+    "uk": "Багатоступінчастий відцентровий насос",
+    "pl": "Wielostopniowa pompa odśrodkowa",
+    "ro": "Pompă centrifugă multietajată",
+    "ru": "Многоступенчатый центробежный насос"
+   },
+   "specs": {
+    "uk": [
+     "1,5–4 кВт",
+     "до 31 м³/год",
+     "до 82 м"
+    ],
+    "pl": [
+     "1,5–4 kW",
+     "do 31 m³/h",
+     "do 82 m"
+    ],
+    "ro": [
+     "1,5–4 kW",
+     "până la 31 m³/h",
+     "până la 82 m"
+    ],
+    "ru": [
+     "1,5–4 кВт",
+     "до 31 м³/ч",
+     "до 82 м"
+    ]
+   },
+   "feature": {
+    "uk": "Паралельна робота до 6 насосів · Wi-Fi",
+    "pl": "Praca równoległa do 6 pomp · Wi-Fi",
+    "ro": "Funcționare în paralel până la 6 pompe · Wi-Fi",
+    "ru": "Параллельная работа до 6 насосов · Wi-Fi"
+   },
+   "docs": 5
+  },
+  {
+   "code": "BB",
+   "brand": "SONMAR-PRODN",
+   "image": "images/products/bb.webp",
+   "models": [
+    "BB 2-115",
+    "BB 4-45"
+   ],
+   "title": {
+    "uk": "Багатоступінчастий відцентровий насос",
+    "pl": "Wielostopniowa pompa odśrodkowa",
+    "ro": "Pompă centrifugă multietajată",
+    "ru": "Многоступенчатый центробежный насос"
+   },
+   "specs": {
+    "uk": [
+     "1,5–2,2 кВт",
+     "до 7,5 м³/год",
+     "до 122 м"
+    ],
+    "pl": [
+     "1,5–2,2 kW",
+     "do 7,5 m³/h",
+     "do 122 m"
+    ],
+    "ro": [
+     "1,5–2,2 kW",
+     "până la 7,5 m³/h",
+     "până la 122 m"
+    ],
+    "ru": [
+     "1,5–2,2 кВт",
+     "до 7,5 м³/ч",
+     "до 122 м"
+    ]
+   },
+   "feature": {
+    "uk": "Крильчатка з нержавіючої сталі · паралельна робота",
+    "pl": "Wirnik ze stali nierdzewnej · praca równoległa",
+    "ro": "Rotor din oțel inoxidabil · funcționare în paralel",
+    "ru": "Крыльчатка из нержавеющей стали · параллельная работа"
+   },
+   "docs": 3
+  },
+  {
+   "code": "PRZ",
+   "brand": "SONMAR-PRODN",
+   "image": "images/products/prz.webp",
+   "models": [
+    "PRZ 2-32",
+    "PRZ 3-40"
+   ],
+   "title": {
+    "uk": "Багатоступінчастий самовсмоктувальний відцентровий насос",
+    "pl": "Wielostopniowa samozasysająca pompa odśrodkowa",
+    "ro": "Pompă centrifugă multietajată autoamorsantă",
+    "ru": "Многоступенчатый самовсасывающий центробежный насос"
+   },
+   "specs": {
+    "uk": [
+     "0,55–0,75 кВт",
+     "до 7 м³/год",
+     "до 48 м"
+    ],
+    "pl": [
+     "0,55–0,75 kW",
+     "do 7 m³/h",
+     "do 48 m"
+    ],
+    "ro": [
+     "0,55–0,75 kW",
+     "până la 7 m³/h",
+     "până la 48 m"
+    ],
+    "ru": [
+     "0,55–0,75 кВт",
+     "до 7 м³/ч",
+     "до 48 м"
+    ]
+   },
+   "feature": {
+    "uk": "Паралельна робота до 2 насосів · Wi-Fi",
+    "pl": "Praca równoległa do 2 pomp · Wi-Fi",
+    "ro": "Funcționare în paralel până la 2 pompe · Wi-Fi",
+    "ru": "Параллельная работа до 2 насосов · Wi-Fi"
+   },
+   "docs": 2
+  },
+  {
+   "code": "BBZ",
+   "brand": "SONMAR-PRODN",
+   "image": "images/products/bbz.webp",
+   "models": [
+    "BBZ 2-32",
+    "BBZ 3-40"
+   ],
+   "title": {
+    "uk": "Самовсмоктувальний багатоступінчастий відцентровий насос",
+    "pl": "Samozasysająca wielostopniowa pompa odśrodkowa",
+    "ro": "Pompă centrifugă multietajată autoamorsantă",
+    "ru": "Самовсасывающий многоступенчатый центробежный насос"
+   },
+   "specs": {
+    "uk": [
+     "0,55–0,75 кВт",
+     "до 7 м³/год",
+     "до 48 м"
+    ],
+    "pl": [
+     "0,55–0,75 kW",
+     "do 7 m³/h",
+     "do 48 m"
+    ],
+    "ro": [
+     "0,55–0,75 kW",
+     "până la 7 m³/h",
+     "până la 48 m"
+    ],
+    "ru": [
+     "0,55–0,75 кВт",
+     "до 7 м³/ч",
+     "до 48 м"
+    ]
+   },
+   "feature": {
+    "uk": "Самовсмоктування · постійний тиск",
+    "pl": "Samozasysanie · stałe ciśnienie",
+    "ro": "Autoamorsare · presiune constantă",
+    "ru": "Самовсасывание · постоянное давление"
+   },
+   "docs": 3
+  },
+  {
+   "code": "BA",
+   "brand": "SONMAR-PRODN",
+   "image": "images/products/ba.webp",
+   "models": [
+    "BA 1-21"
+   ],
+   "title": {
+    "uk": "Самовсмоктувальний вихровий насос",
+    "pl": "Samozasysająca pompa wirowa",
+    "ro": "Pompă periferică autoamorsantă",
+    "ru": "Самовсасывающий вихревой насос"
+   },
+   "specs": {
+    "uk": [
+     "0,3 кВт",
+     "до 2 м³/год",
+     "до 34 м"
+    ],
+    "pl": [
+     "0,3 kW",
+     "do 2 m³/h",
+     "do 34 m"
+    ],
+    "ro": [
+     "0,3 kW",
+     "până la 2 m³/h",
+     "până la 34 m"
+    ],
+    "ru": [
+     "0,3 кВт",
+     "до 2 м³/ч",
+     "до 34 м"
+    ]
+   },
+   "feature": {
+    "uk": "Латунна крильчатка · інтегрований датчик",
+    "pl": "Mosiężny wirnik · zintegrowany czujnik",
+    "ro": "Rotor din alamă · senzor integrat",
+    "ru": "Латунная крыльчатка · встроенный датчик"
+   },
+   "docs": 3
+  },
+  {
+   "code": "VFS",
+   "brand": "SONMAR-PRODN",
+   "image": "images/products/vfs.webp",
+   "models": [
+    "VFS 22",
+    "VFS 24"
+   ],
+   "title": {
+    "uk": "Інтелектуальний інверторний контролер насоса",
+    "pl": "Inteligentny falownikowy sterownik pompy",
+    "ro": "Controler inteligent cu invertor pentru pompă",
+    "ru": "Интеллектуальный инверторный контроллер насоса"
+   },
+   "specs": {
+    "uk": [
+     "1,5–4 кВт",
+     "вхід 220 В, 1 фаза"
+    ],
+    "pl": [
+     "1,5–4 kW",
+     "wejście 220 V, 1 faza"
+    ],
+    "ro": [
+     "1,5–4 kW",
+     "intrare 220 V, monofazat"
+    ],
+    "ru": [
+     "1,5–4 кВт",
+     "вход 220 В, 1 фаза"
+    ]
+   },
+   "feature": {
+    "uk": "Постійний тиск · паралельна робота · Wi-Fi",
+    "pl": "Stałe ciśnienie · praca równoległa · Wi-Fi",
+    "ro": "Presiune constantă · funcționare în paralel · Wi-Fi",
+    "ru": "Постоянное давление · параллельная работа · Wi-Fi"
+   },
+   "docs": 4
+  }
+ ],
+ "documents": [
+  {
+   "url": "https://directus.sonmar.com.ua/assets/e0700597-b563-4b04-8cd1-6e2b5ed1533a",
+   "download": "https://directus.sonmar.com.ua/assets/e0700597-b563-4b04-8cd1-6e2b5ed1533a?download",
+   "size": 20873226,
+   "format": "PDF",
+   "id": "7f82a95c-8671-48bd-b012-2caee0370c69",
+   "title": "SONMAR-prodn",
+   "type": "Каталог",
+   "version": "2026.1",
+   "date": "2026-01-01",
+   "lang": [
+    "ua"
+   ],
+   "families": [
+    "BA",
+    "BB",
+    "BBZ",
+    "PNC",
+    "PRZ",
+    "VFS"
+   ],
+   "cover": "images/catalog/e0700597-b563-4b04-8cd1-6e2b5ed1533a.webp"
+  },
+  {
+   "url": "https://directus.sonmar.com.ua/assets/b4b55fcf-597f-4804-bb47-0fd246563aad",
+   "download": "https://directus.sonmar.com.ua/assets/b4b55fcf-597f-4804-bb47-0fd246563aad?download",
+   "size": 827768,
+   "format": "PDF",
+   "id": "4eeb106a-ecda-45e9-bdff-b9b52030f350",
+   "title": "BA",
+   "type": "Інструкція з монтажу",
+   "version": null,
+   "date": "2026-03-16",
+   "lang": [
+    "ua"
+   ],
+   "families": [
+    "BA"
+   ]
+  },
+  {
+   "url": "https://directus.sonmar.com.ua/assets/b5317c54-422b-429b-bd0f-ed2bcb31cd59",
+   "download": "https://directus.sonmar.com.ua/assets/b5317c54-422b-429b-bd0f-ed2bcb31cd59?download",
+   "size": 537202,
+   "format": "PDF",
+   "id": "1ffe1cc1-6190-4096-a5f7-ab4e593e0c22",
+   "title": "BB",
+   "type": "Інструкція з монтажу",
+   "version": null,
+   "date": "2026-03-16",
+   "lang": [
+    "ua"
+   ],
+   "families": [
+    "BB"
+   ]
+  },
+  {
+   "url": "https://directus.sonmar.com.ua/assets/180f6a00-f5d1-463d-940e-80a6022c5ace",
+   "download": "https://directus.sonmar.com.ua/assets/180f6a00-f5d1-463d-940e-80a6022c5ace?download",
+   "size": 580565,
+   "format": "PDF",
+   "id": "867001bb-a07b-4651-9364-dfe6d1fc5e44",
+   "title": "BBZ",
+   "type": "Інструкція з монтажу",
+   "version": null,
+   "date": "2026-03-16",
+   "lang": [
+    "ua"
+   ],
+   "families": [
+    "BBZ"
+   ]
+  },
+  {
+   "url": "https://directus.sonmar.com.ua/assets/4a9edd13-baf5-4022-a502-1dc09d25fec9",
+   "download": "https://directus.sonmar.com.ua/assets/4a9edd13-baf5-4022-a502-1dc09d25fec9?download",
+   "size": 593254,
+   "format": "PDF",
+   "id": "3f11990d-0814-4468-b56c-65729147bc41",
+   "title": "PNC",
+   "type": "Інструкція з монтажу",
+   "version": null,
+   "date": "2026-03-16",
+   "lang": [
+    "ua"
+   ],
+   "families": [
+    "PNC"
+   ]
+  },
+  {
+   "url": "https://directus.sonmar.com.ua/assets/a317f146-0417-4add-b804-04a0b0459d43",
+   "download": "https://directus.sonmar.com.ua/assets/a317f146-0417-4add-b804-04a0b0459d43?download",
+   "size": 477911,
+   "format": "PDF",
+   "id": "85bc4627-81c0-4bb2-8d73-6704886df0b5",
+   "title": "PNCE",
+   "type": "Інструкція з монтажу",
+   "version": null,
+   "date": "2026-03-16",
+   "lang": [
+    "ua"
+   ],
+   "families": [
+    "PNC"
+   ]
+  },
+  {
+   "url": "https://directus.sonmar.com.ua/assets/a314272f-0d5b-486d-ba0a-645a56676d4a",
+   "download": "https://directus.sonmar.com.ua/assets/a314272f-0d5b-486d-ba0a-645a56676d4a?download",
+   "size": 1278621,
+   "format": "PDF",
+   "id": "cc4dd407-8eab-4266-a417-2981a2bf1883",
+   "title": "VFS",
+   "type": "Інструкція з монтажу",
+   "version": null,
+   "date": "2026-03-16",
+   "lang": [
+    "ua"
+   ],
+   "families": [
+    "VFS"
+   ]
+  },
+  {
+   "url": "https://directus.sonmar.com.ua/assets/ebd3cb67-9add-4245-8f3c-eae44024025d",
+   "download": "https://directus.sonmar.com.ua/assets/ebd3cb67-9add-4245-8f3c-eae44024025d?download",
+   "size": 1241317,
+   "format": "PDF",
+   "id": "d50ed5dc-34c9-4f43-b857-2b609a8f54cb",
+   "title": "VFS",
+   "type": "Інструкція з настройки",
+   "version": "1.2.15",
+   "date": "2026-10-22",
+   "lang": [
+    "ua"
+   ],
+   "families": [
+    "VFS"
+   ]
+  },
+  {
+   "url": "https://directus.sonmar.com.ua/assets/c7795fdf-841f-4d9a-8453-649af614710b",
+   "download": "https://directus.sonmar.com.ua/assets/c7795fdf-841f-4d9a-8453-649af614710b?download",
+   "size": 225880,
+   "format": "PDF",
+   "id": "ae513388-0f63-42c0-89a7-b4db63ca7b88",
+   "title": "Панель керування (BB,BBZ,BA)",
+   "type": "Інструкція з настройки",
+   "version": null,
+   "date": "2026-03-16",
+   "lang": [
+    "ua"
+   ],
+   "families": [
+    "BA",
+    "BB",
+    "BBZ"
+   ]
+  },
+  {
+   "url": "https://directus.sonmar.com.ua/assets/f8e435b4-fd8d-4c14-972a-6a4b5b0467cc",
+   "download": "https://directus.sonmar.com.ua/assets/f8e435b4-fd8d-4c14-972a-6a4b5b0467cc?download",
+   "size": 364665,
+   "format": "PDF",
+   "id": "1fd52cee-b2c1-4f64-861b-6ab1836cdf38",
+   "title": "Панель керування (PRZ,PNCE)",
+   "type": "Інструкція з настройки",
+   "version": null,
+   "date": "2026-03-16",
+   "lang": [
+    "ua"
+   ],
+   "families": [
+    "PNC",
+    "PRZ"
+   ]
+  },
+  {
+   "url": "https://directus.sonmar.com.ua/assets/f284cbda-809e-4630-872a-5630dd62873c",
+   "download": "https://directus.sonmar.com.ua/assets/f284cbda-809e-4630-872a-5630dd62873c?download",
+   "size": 441419,
+   "format": "PDF",
+   "id": "238a57af-1d7c-457e-a822-8488a586cfc8",
+   "title": "Панель керування PNC",
+   "type": "Інструкція з настройки",
+   "version": null,
+   "date": "2026-03-16",
+   "lang": [
+    "ua"
+   ],
+   "families": [
+    "PNC"
+   ]
+  },
+  {
+   "url": "https://directus.sonmar.com.ua/assets/355ea041-b455-4cbb-8513-1200121ac25d",
+   "download": "https://directus.sonmar.com.ua/assets/355ea041-b455-4cbb-8513-1200121ac25d?download",
+   "size": 1082948,
+   "format": "PDF",
+   "id": "6cd3bf89-2e25-404b-99d7-401471eab21a",
+   "title": "VFS",
+   "type": "Інструкція «Швидкий старт»",
+   "version": "1.2.15",
+   "date": "2026-10-22",
+   "lang": [
+    "ua"
+   ],
+   "families": [
+    "VFS"
+   ]
+  }
+ ]
+}

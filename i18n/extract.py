@@ -21,7 +21,7 @@ def strings(soup):
             continue
         add(str(node))
     for el in soup.find_all(True):
-        for a in ATTRS:
+        for a in list(ATTRS) + [k for k in el.attrs if k.startswith('data-t-')]:
             if el.has_attr(a):
                 add(el[a])
     return seen

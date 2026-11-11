@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="../styles.css?v=202610081537" rel="stylesheet"/>
+<link href="../styles.css?v=202611110913" rel="stylesheet"/>
 </head>
 <body>
 <div aria-hidden="true" class="progress"><span></span></div>
@@ -39,10 +39,10 @@
 <span>SONMAR</span>
 </a>
 <nav aria-label="Основная навигация" class="nav" id="nav">
-<a href="#why">Почему SONMAR</a>
+<a href="#brand">Каталог</a>
 <a href="#systems">Решения</a>
 <a href="#partners">Сотрудничество</a>
-<a href="#automation">Автоматика</a>
+<a href="#downloads">Документы</a>
 <a href="#contacts">Контакты</a>
 <a class="nav__cta" href="#contacts">Связаться
           <svg aria-hidden="true" height="16" viewbox="0 0 24 24" width="16"><path d="M7 17 17 7M8 7h9v9"></path></svg>
@@ -161,6 +161,56 @@
 <p>Видим систему целиком: гидравлика, автоматика, эксплуатация. Это наша уникальная позиция на рынке — и причина, почему к нам приходят со сложными задачами.</p>
 </article>
 </div>
+</div>
+</section>
+<!-- ===== Own brand: SONMAR by PRODN (дані: data/catalog.json з Directus) ===== -->
+<section class="brand" data-catalog="../data/catalog.json" id="brand">
+<div aria-hidden="true" class="brand__bg">
+<svg class="brand__lines" preserveaspectratio="none" viewbox="0 0 1440 600">
+<path d="M0 420 C 300 340 520 520 820 430 S 1260 320 1440 380"></path>
+<path d="M0 470 C 320 390 560 560 860 470 S 1280 360 1440 420"></path>
+<path d="M0 520 C 340 440 600 600 900 510 S 1300 400 1440 460"></path>
+</svg>
+<div class="brand__glow"></div>
+</div>
+<div class="container">
+<div class="brand__head">
+<div>
+<span class="eyebrow eyebrow--dark reveal"><i class="dot"></i> Собственная торговая марка</span>
+<h2 class="brand__title reveal">SONMAR <span>by PRODN</span></h2>
+</div>
+<p class="brand__lead reveal" style="--d:.1s">Интеллектуальные инверторные насосы под нашей маркой — напрямую от производителя, с документацией на украинском и сервисом в Украине. Постоянное давление, экономия электроэнергии и тихая работа — в каждой модели.</p>
+</div>
+<ul class="perks reveal" style="--d:.15s">
+<li>Энергосбережение</li><li>Постоянное давление</li><li>Защита от замерзания</li><li>Низкий уровень шума</li><li>Многоуровневая защита</li><li>Широкий диапазон напряжения</li>
+</ul>
+<div class="brand__grid">
+<article class="catalog-card reveal" hidden="" id="catalogCard">
+<a class="catalog-card__cover" data-bind="open" rel="noopener" target="_blank">
+<img alt="Обложка каталога SONMAR by PRODN" data-bind="cover" height="640" loading="lazy" width="468"/>
+<span class="catalog-card__badge" data-bind="version"></span>
+</a>
+<div class="catalog-card__body">
+<span class="catalog-card__tag">Прайс-каталог</span>
+<h3>Каталог SONMAR by PRODN</h3>
+<p>Модельный ряд, технические характеристики, кривые производительности и габаритные размеры — в одном файле.</p>
+<p class="catalog-card__meta" data-bind="meta"></p>
+<div class="catalog-card__actions">
+<a class="btn btn--light magnetic" data-bind="open" rel="noopener" target="_blank">Открыть каталог
+                  <svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a class="catalog-card__dl" data-bind="download">
+<svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg>
+                  Скачать PDF
+                </a>
+</div>
+</div>
+</article>
+<div aria-live="polite" class="families" id="families"></div>
+</div>
+<a class="brand__more reveal" href="#downloads">Вся документация: инструкции по монтажу и настройке
+          <svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
 </div>
 </section>
 <!-- ===== Systems ===== -->
@@ -334,6 +384,23 @@
 </div>
 </div>
 </section>
+<!-- ===== Downloads (дані: data/catalog.json з Directus) ===== -->
+<section class="section downloads" id="downloads">
+<div class="container">
+<div class="section__head">
+<h2 class="h2 reveal">Документация</h2>
+<p class="section__sub reveal" style="--d:.1s">Каталоги, инструкции по монтажу и настройке — только актуальные версии. Обновляются автоматически.</p>
+</div>
+<div class="dl-filters reveal">
+<div aria-label="Тип документа" class="dl-chips" id="dlTypes" role="group"></div>
+<div aria-label="Серия" class="dl-chips dl-chips--sm" id="dlFamilies" role="group"></div>
+</div>
+<div aria-live="polite" class="dl-grid" id="dlGrid"></div>
+<p class="dl-empty" hidden="" id="dlEmpty">Для этого фильтра документов пока нет.</p>
+<div class="dl-more"><button class="btn btn--outline" hidden="" id="dlMore">Показать все</button></div>
+</div>
+<template data-t-all="Все" data-t-all-series="Все серии" data-t-docs="Документы" data-t-download="Скачать" data-t-kb="КБ" data-t-mb="МБ" data-t-models="Модели" data-t-more="Показать все" data-t-open="Открыть" data-t-series="Серия" data-t-type-cad="CAD/BIM" data-t-type-catalog="Каталог" data-t-type-install="Инструкция по монтажу" data-t-type-leaflet="Буклет" data-t-type-parts="Схема запчастей" data-t-type-quick="Быстрый старт" data-t-type-setup="Инструкция по настройке" data-t-type-tech="Технические данные" data-t-type-video="Видео" data-t-version="версия" id="dlText"></template>
+</section>
 <!-- ===== Contacts ===== -->
 <section class="contacts" id="contacts">
 <svg aria-hidden="true" class="contacts__wave" preserveaspectratio="none" viewbox="0 0 1440 80">
@@ -386,6 +453,6 @@
 <button aria-label="Следующее фото" class="lightbox__nav lightbox__nav--next">›</button>
 </div>
 <div aria-live="polite" class="toast" id="toast" role="status"></div>
-<script defer="" src="../script.js?v=202610081537"></script>
+<script defer="" src="../script.js?v=202611110913"></script>
 </body>
 </html>
