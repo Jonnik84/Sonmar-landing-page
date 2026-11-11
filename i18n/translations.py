@@ -217,3 +217,7 @@ T.update({
  'Широкий діапазон напруги': {"pl": 'Szeroki zakres napięcia', "ro": 'Gamă largă de tensiune', "ru": 'Широкий диапазон напряжения'},
  'версія': {"pl": 'wersja', "ro": 'versiunea', "ru": 'версия'},
 })
+
+T.update({
+ 'Інші версії': {'pl': 'Inne wersje', 'ro': 'Alte versiuni', 'ru': 'Другие версии'},
+})

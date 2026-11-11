@@ -11,7 +11,7 @@
 
 Правила публікації:
   * лише активні серії й моделі; з серій — тільки ті, для яких є оформлення в catalog/families.py;
-  * з кожного документа береться лише найновіша опублікована версія;
+  * найновіша опублікована версія документа — основна, попередні — у списку «Інші версії»;
   * документ потрапляє на сайт, тільки якщо його файл у Directus відкритий для всіх
     (/assets/<id> віддається без токена) — закриті файли ніколи не з'являться на сайті;
   * типи з EXCLUDE_TYPES не публікуються.
@@ -128,8 +128,8 @@ def build(raw, check_public=is_public):
             codes.update(brand_fams.get(b['name'] if isinstance(b, dict) else b, []))
         res_fams.setdefault(rid, set()).update(codes)
 
-    # --- остання опублікована версія кожного ресурсу
-    latest = {}
+    # --- усі опубліковані версії кожного ресурсу (найновіша — перша)
+    by_res = {}
     for v in raw['variants']:
         r = v.get('resource_id') or {}
         if r.get('type') in EXCLUDE_TYPES:
@@ -137,33 +137,50 @@ def build(raw, check_public=is_public):
         pd = v.get('published_date')
         if pd and pd > now:
             continue
-        has_target = (v.get('file') or {}).get('id') or v.get('url')
-        if not has_target:
+        if not ((v.get('file') or {}).get('id') or v.get('url')):
             continue
-        cur = latest.get(r['id'])
-        if cur is None or (pd or '') > (cur.get('published_date') or ''):
-            latest[r['id']] = v
+        by_res.setdefault(r['id'], []).append(v)
 
-    docs, catalog = [], None
-    for rid, v in latest.items():
+    def target(v):
+        """Посилання на файл/URL версії або None, якщо файл не публічний."""
         r, f = v['resource_id'], v.get('file') or {}
         if f.get('id'):
             if not check_public(f['id']):
-                print('  - skip (not public):', r['name'], r['type'])
-                continue
+                print('  - skip (not public):', r['name'], r['type'], v.get('name') or '')
+                return None
             url = f"{BASE}/assets/{f['id']}"
-            item = {'url': url, 'download': url + '?download', 'size': int(f.get('filesize') or 0),
+            return {'url': url, 'download': url + '?download', 'size': int(f.get('filesize') or 0),
                     'format': (f.get('type') or '').split('/')[-1].upper() or 'FILE'}
-        else:
-            item = {'url': v['url'], 'download': None, 'size': 0,
-                    'format': 'VIDEO' if r.get('format') == 'video_link' else 'WEB'}
-        item.update({
-            'id': v['id'], 'title': r['name'].strip(), 'type': r['type'],
-            'version': (v.get('name') or '').strip() or None,
-            'date': (v.get('published_date') or '')[:10] or None,
-            'lang': v.get('language') or [],
-            'families': sorted(c for c in res_fams.get(rid, ()) if c in FAMILIES),
-        })
+        return {'url': v['url'], 'download': None, 'size': 0,
+                'format': 'VIDEO' if r.get('format') == 'video_link' else 'WEB'}
+
+    def meta(v):
+        return {'version': (v.get('name') or '').strip() or None,
+                'date': (v.get('published_date') or '')[:10] or None,
+                'lang': v.get('language') or []}
+
+    docs, catalog = [], None
+    for rid, variants in by_res.items():
+        variants.sort(key=lambda v: v.get('published_date') or '', reverse=True)
+        published, seen_files = [], set()
+        for v in variants:
+            fid = (v.get('file') or {}).get('id')
+            if fid and fid in seen_files:
+                continue
+            t = target(v)
+            if t:
+                published.append((v, t))
+                if fid:
+                    seen_files.add(fid)
+        if not published:
+            continue
+        v, item = published[0]
+        r, f = v['resource_id'], v.get('file') or {}
+        item.update({'id': v['id'], 'title': r['name'].strip(), 'type': r['type'], **meta(v),
+                     'families': sorted(c for c in res_fams.get(rid, ()) if c in FAMILIES)})
+        # попередні версії — для випадаючого списку на сайті
+        item['versions'] = [{**meta(ov), **{k: ot[k] for k in ('url', 'download', 'size')}}
+                            for ov, ot in published[1:]]
         if r['type'] == CATALOG_TYPE and f.get('id'):
             cover = make_cover(f['id'])
             if cover:

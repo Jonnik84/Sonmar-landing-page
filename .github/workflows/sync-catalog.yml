@@ -1,6 +1,6 @@
 # Оновлює data/catalog.json (серії, моделі, документи) з Directus.
-# Токен Directus (лише читання) береться з Bitwarden Secrets Manager (регіон EU).
-# Потрібен секрет репозиторію BW_ACCESS_TOKEN — токен machine account Bitwarden з доступом до секрету нижче.
+# Токен Directus (лише читання) береться з Bitwarden Secrets Manager (регіон EU) за назвою секрету DIRECTUS_READ_TOKEN.
+# Потрібен секрет репозиторію BW_ACCESS_TOKEN — токен machine account Bitwarden з доступом до проєкту з цим секретом.
 # Запуск: автоматично кожні 6 годин, вручну (Actions → Sync catalog → Run workflow),
 # при зміні скрипта синхронізації або з Directus Flow через repository_dispatch (event_type: directus-update).
 name: Sync catalog
@@ -39,12 +39,26 @@ jobs:
           pip install --quiet pillow
 
       - name: Get Directus token from Bitwarden
-        uses: bitwarden/sm-action@v3.0.1
-        with:
-          access_token: ${{ secrets.BW_ACCESS_TOKEN }}
-          cloud_region: eu
-          secrets: |
-            62b0dcaf-0ea3-4f45-81f5-b4ff00a234f9 > DIRECTUS_TOKEN
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BWS_ACCESS_TOKEN: ${{ secrets.BW_ACCESS_TOKEN }}
+          BWS_SERVER_URL: https://vault.bitwarden.eu
+          SECRET_NAME: DIRECTUS_READ_TOKEN
+        run: |
+          tag=$(gh release list -R bitwarden/sdk-sm --limit 100 --json tagName \
+                --jq '[.[] | select(.tagName | startswith("bws-v"))][0].tagName')
+          echo "bws release: $tag"
+          gh release download "$tag" -R bitwarden/sdk-sm -p 'bws-x86_64-unknown-linux-gnu-*.zip' -D /tmp/bws
+          unzip -q -o /tmp/bws/*.zip -d /tmp/bws && chmod +x /tmp/bws/bws
+          secrets=$(/tmp/bws/bws secret list --output json)
+          echo "Секрети, доступні machine account: $(echo "$secrets" | jq -r '[.[].key] | join(", ")')"
+          token=$(echo "$secrets" | jq -r --arg n "$SECRET_NAME" '[.[] | select(.key == $n)][0].value // empty')
+          if [ -z "$token" ]; then
+            echo "::error::Секрет $SECRET_NAME не знайдено. Дайте machine account доступ до проєкту з цим секретом."
+            exit 1
+          fi
+          echo "::add-mask::$token"
+          echo "DIRECTUS_TOKEN=$token" >> "$GITHUB_ENV"
 
       - name: Sync from Directus
         env:

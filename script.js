@@ -289,6 +289,17 @@
             <h3 class="doc__title">${esc(d.title)}</h3>
             ${tags.length ? `<p class="doc__tags">${tags.map((c) => `<span>${esc(c)}</span>`).join('')}</p>` : ''}
             <p class="doc__meta">${meta.map(esc).join(' · ')}</p>
+            ${(d.versions || []).length ? `
+            <details class="doc__versions">
+              <summary>${esc(t('other-versions'))} <span>${d.versions.length}</span></summary>
+              <ul>${d.versions.map((v) => `
+                <li>
+                  <a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.version ? `${t('version')} ${v.version}` : date(v.date))}</a>
+                  <small>${esc([v.version && date(v.date), size(v.size)].filter(Boolean).join(' · '))}</small>
+                  ${v.download ? `<a class="doc__vdl" href="${esc(v.download)}" aria-label="${esc(t('download'))}" title="${esc(t('download'))}">${ICON_DL}</a>` : ''}
+                </li>`).join('')}
+              </ul>
+            </details>` : ''}
           </div>
           <div class="doc__actions">
             <a href="${esc(d.url)}" target="_blank" rel="noopener" aria-label="${esc(t('open'))}: ${esc(d.title)}" title="${esc(t('open'))}">${ICON_EYE}</a>

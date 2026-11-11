@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11T09:13:51.404847+00:00",
+ "generated": "2026-11-11T09:57:53.125492+00:00",
  "catalog": {
   "url": "https://directus.sonmar.com.ua/assets/e0700597-b563-4b04-8cd1-6e2b5ed1533a",
   "download": "https://directus.sonmar.com.ua/assets/e0700597-b563-4b04-8cd1-6e2b5ed1533a?download",
@@ -21,6 +21,7 @@
    "PRZ",
    "VFS"
   ],
+  "versions": [],
   "cover": "images/catalog/e0700597-b563-4b04-8cd1-6e2b5ed1533a.webp"
  },
  "families": [
@@ -308,6 +309,7 @@
     "PRZ",
     "VFS"
    ],
+   "versions": [],
    "cover": "images/catalog/e0700597-b563-4b04-8cd1-6e2b5ed1533a.webp"
   },
   {
@@ -325,7 +327,8 @@
    ],
    "families": [
     "BA"
-   ]
+   ],
+   "versions": []
   },
   {
    "url": "https://directus.sonmar.com.ua/assets/b5317c54-422b-429b-bd0f-ed2bcb31cd59",
@@ -342,7 +345,8 @@
    ],
    "families": [
     "BB"
-   ]
+   ],
+   "versions": []
   },
   {
    "url": "https://directus.sonmar.com.ua/assets/180f6a00-f5d1-463d-940e-80a6022c5ace",
@@ -359,7 +363,8 @@
    ],
    "families": [
     "BBZ"
-   ]
+   ],
+   "versions": []
   },
   {
    "url": "https://directus.sonmar.com.ua/assets/4a9edd13-baf5-4022-a502-1dc09d25fec9",
@@ -376,7 +381,8 @@
    ],
    "families": [
     "PNC"
-   ]
+   ],
+   "versions": []
   },
   {
    "url": "https://directus.sonmar.com.ua/assets/a317f146-0417-4add-b804-04a0b0459d43",
@@ -393,7 +399,8 @@
    ],
    "families": [
     "PNC"
-   ]
+   ],
+   "versions": []
   },
   {
    "url": "https://directus.sonmar.com.ua/assets/a314272f-0d5b-486d-ba0a-645a56676d4a",
@@ -410,7 +417,8 @@
    ],
    "families": [
     "VFS"
-   ]
+   ],
+   "versions": []
   },
   {
    "url": "https://directus.sonmar.com.ua/assets/ebd3cb67-9add-4245-8f3c-eae44024025d",
@@ -427,6 +435,28 @@
    ],
    "families": [
     "VFS"
+   ],
+   "versions": [
+    {
+     "version": "1.2.10",
+     "date": "2026-10-04",
+     "lang": [
+      "ua"
+     ],
+     "url": "https://directus.sonmar.com.ua/assets/a4d257f5-226f-4dfd-a2e0-3400ac341d4a",
+     "download": "https://directus.sonmar.com.ua/assets/a4d257f5-226f-4dfd-a2e0-3400ac341d4a?download",
+     "size": 1191571
+    },
+    {
+     "version": null,
+     "date": "2026-03-01",
+     "lang": [
+      "ua"
+     ],
+     "url": "https://directus.sonmar.com.ua/assets/249ccac8-2cce-43b7-997b-20876efaa9eb",
+     "download": "https://directus.sonmar.com.ua/assets/249ccac8-2cce-43b7-997b-20876efaa9eb?download",
+     "size": 457237
+    }
    ]
   },
   {
@@ -446,7 +476,8 @@
     "BA",
     "BB",
     "BBZ"
-   ]
+   ],
+   "versions": []
   },
   {
    "url": "https://directus.sonmar.com.ua/assets/f8e435b4-fd8d-4c14-972a-6a4b5b0467cc",
@@ -464,7 +495,8 @@
    "families": [
     "PNC",
     "PRZ"
-   ]
+   ],
+   "versions": []
   },
   {
    "url": "https://directus.sonmar.com.ua/assets/f284cbda-809e-4630-872a-5630dd62873c",
@@ -481,7 +513,8 @@
    ],
    "families": [
     "PNC"
-   ]
+   ],
+   "versions": []
   },
   {
    "url": "https://directus.sonmar.com.ua/assets/355ea041-b455-4cbb-8513-1200121ac25d",
@@ -498,6 +531,18 @@
    ],
    "families": [
     "VFS"
+   ],
+   "versions": [
+    {
+     "version": "1.2.10",
+     "date": "2026-10-04",
+     "lang": [
+      "ua"
+     ],
+     "url": "https://directus.sonmar.com.ua/assets/86758fc2-79c3-4fea-8486-89185b72d467",
+     "download": "https://directus.sonmar.com.ua/assets/86758fc2-79c3-4fea-8486-89185b72d467?download",
+     "size": 1082948
+    }
    ]
   }
  ]
