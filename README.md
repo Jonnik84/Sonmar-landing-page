@@ -49,6 +49,7 @@ python3 -m http.server 8000
 Нова серія з'явиться на сайті після того, як для неї додати запис у цей файл.
 
 Оновлення: GitHub Action `Sync catalog` кожні 6 годин (або вручну: Actions → Sync catalog → Run workflow).
-Потрібен секрет репозиторію `DIRECTUS_TOKEN` — статичний токен користувача Directus з правом лише на читання
-колекцій `product_family`, `product_groups`, `products`, `brands`, `resources`, `resource_variants`,
-`entity_resources` і `directus_files`.
+Токен Directus (статичний токен користувача з правом лише на читання колекцій `product_family`, `product_groups`,
+`products`, `brands`, `resources`, `resource_variants`, `entity_resources`, `directus_files`) зберігається
+в Bitwarden Secrets Manager (EU), секрет `62b0dcaf-0ea3-4f45-81f5-b4ff00a234f9`.
+У GitHub — лише секрет `BW_ACCESS_TOKEN` (токен machine account Bitwarden з доступом до цього секрету).

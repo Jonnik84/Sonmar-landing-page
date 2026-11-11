@@ -1,13 +1,18 @@
 # Оновлює data/catalog.json (серії, моделі, документи) з Directus.
-# Потрібен секрет репозиторію DIRECTUS_TOKEN — статичний токен користувача Directus лише з правом читання.
-# Запуск: автоматично кожні 6 годин, вручну (Actions → Sync catalog → Run workflow)
-# або з Directus Flow через repository_dispatch (event_type: directus-update).
+# Токен Directus (лише читання) береться з Bitwarden Secrets Manager (регіон EU).
+# Потрібен секрет репозиторію BW_ACCESS_TOKEN — токен machine account Bitwarden з доступом до секрету нижче.
+# Запуск: автоматично кожні 6 годин, вручну (Actions → Sync catalog → Run workflow),
+# при зміні скрипта синхронізації або з Directus Flow через repository_dispatch (event_type: directus-update).
 name: Sync catalog
 
 on:
   schedule:
     - cron: '17 */6 * * *'
   workflow_dispatch:
+  push:
+    paths:
+      - 'catalog/**'
+      - '.github/workflows/sync-catalog.yml'
   repository_dispatch:
     types: [directus-update]
 
@@ -33,10 +38,17 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
           pip install --quiet pillow
 
+      - name: Get Directus token from Bitwarden
+        uses: bitwarden/sm-action@v3
+        with:
+          access_token: ${{ secrets.BW_ACCESS_TOKEN }}
+          cloud_region: eu
+          secrets: |
+            62b0dcaf-0ea3-4f45-81f5-b4ff00a234f9 > DIRECTUS_TOKEN
+
       - name: Sync from Directus
         env:
           DIRECTUS_URL: https://directus.sonmar.com.ua
-          DIRECTUS_TOKEN: ${{ secrets.DIRECTUS_TOKEN }}
         run: python3 catalog/sync.py
 
       - name: Commit changes
