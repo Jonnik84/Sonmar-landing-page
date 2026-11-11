@@ -39,7 +39,7 @@ jobs:
           pip install --quiet pillow
 
       - name: Get Directus token from Bitwarden
-        uses: bitwarden/sm-action@v3
+        uses: bitwarden/sm-action@v3.0.1
         with:
           access_token: ${{ secrets.BW_ACCESS_TOKEN }}
           cloud_region: eu
