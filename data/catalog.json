@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11T09:57:53.125492+00:00",
+ "generated": "2026-11-13T19:39:45.976973+00:00",
  "catalog": {
   "url": "https://directus.sonmar.com.ua/assets/e0700597-b563-4b04-8cd1-6e2b5ed1533a",
   "download": "https://directus.sonmar.com.ua/assets/e0700597-b563-4b04-8cd1-6e2b5ed1533a?download",
@@ -421,15 +421,15 @@
    "versions": []
   },
   {
-   "url": "https://directus.sonmar.com.ua/assets/ebd3cb67-9add-4245-8f3c-eae44024025d",
-   "download": "https://directus.sonmar.com.ua/assets/ebd3cb67-9add-4245-8f3c-eae44024025d?download",
-   "size": 1241317,
+   "url": "https://directus.sonmar.com.ua/assets/8362ae6f-c458-4203-a6c2-95cba197447a",
+   "download": "https://directus.sonmar.com.ua/assets/8362ae6f-c458-4203-a6c2-95cba197447a?download",
+   "size": 1240650,
    "format": "PDF",
-   "id": "d50ed5dc-34c9-4f43-b857-2b609a8f54cb",
+   "id": "f3c67e9b-35fd-4a87-b82d-ac7b457249d5",
    "title": "VFS",
    "type": "Інструкція з настройки",
-   "version": "1.2.15",
-   "date": "2026-10-22",
+   "version": "1.2.16",
+   "date": "2026-11-13",
    "lang": [
     "ua"
    ],
@@ -437,6 +437,16 @@
     "VFS"
    ],
    "versions": [
+    {
+     "version": "1.2.15",
+     "date": "2026-10-22",
+     "lang": [
+      "ua"
+     ],
+     "url": "https://directus.sonmar.com.ua/assets/ebd3cb67-9add-4245-8f3c-eae44024025d",
+     "download": "https://directus.sonmar.com.ua/assets/ebd3cb67-9add-4245-8f3c-eae44024025d?download",
+     "size": 1241317
+    },
     {
      "version": "1.2.10",
      "date": "2026-10-04",
@@ -517,22 +527,30 @@
    "versions": []
   },
   {
-   "url": "https://directus.sonmar.com.ua/assets/355ea041-b455-4cbb-8513-1200121ac25d",
-   "download": "https://directus.sonmar.com.ua/assets/355ea041-b455-4cbb-8513-1200121ac25d?download",
-   "size": 1082948,
+   "url": "https://directus.sonmar.com.ua/assets/02924846-03b5-4254-83c0-3243f18f1407",
+   "download": "https://directus.sonmar.com.ua/assets/02924846-03b5-4254-83c0-3243f18f1407?download",
+   "size": 1087619,
    "format": "PDF",
-   "id": "6cd3bf89-2e25-404b-99d7-401471eab21a",
+   "id": "bdb7ea98-944a-4cee-92a0-e0dee7c43125",
    "title": "VFS",
    "type": "Інструкція «Швидкий старт»",
-   "version": "1.2.15",
-   "date": "2026-10-22",
-   "lang": [
-    "ua"
-   ],
+   "version": "1.2.16",
+   "date": "2026-11-13",
+   "lang": [],
    "families": [
     "VFS"
    ],
    "versions": [
+    {
+     "version": "1.2.15",
+     "date": "2026-10-22",
+     "lang": [
+      "ua"
+     ],
+     "url": "https://directus.sonmar.com.ua/assets/355ea041-b455-4cbb-8513-1200121ac25d",
+     "download": "https://directus.sonmar.com.ua/assets/355ea041-b455-4cbb-8513-1200121ac25d?download",
+     "size": 1082948
+    },
     {
      "version": "1.2.10",
      "date": "2026-10-04",
