@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T19:39:45.976973+00:00",
+ "generated": "2026-11-17T20:53:17.959687+00:00",
  "catalog": {
   "url": "https://directus.sonmar.com.ua/assets/e0700597-b563-4b04-8cd1-6e2b5ed1533a",
   "download": "https://directus.sonmar.com.ua/assets/e0700597-b563-4b04-8cd1-6e2b5ed1533a?download",
@@ -284,7 +284,7 @@
     "ro": "Presiune constantă · funcționare în paralel · Wi-Fi",
     "ru": "Постоянное давление · параллельная работа · Wi-Fi"
    },
-   "docs": 4
+   "docs": 5
   }
  ],
  "documents": [
@@ -470,6 +470,24 @@
    ]
   },
   {
+   "url": "https://youtu.be/rvIrdrqGUys",
+   "download": null,
+   "size": 0,
+   "format": "VIDEO",
+   "id": "9eeabcae-732f-40d9-8a91-e3c081ccf7ef",
+   "title": "VFS: перший пуск водопостачання, поверхневий насос",
+   "type": "Інструкція з настройки",
+   "version": null,
+   "date": "2026-11-17",
+   "lang": [
+    "ua"
+   ],
+   "families": [
+    "VFS"
+   ],
+   "versions": []
+  },
+  {
    "url": "https://directus.sonmar.com.ua/assets/c7795fdf-841f-4d9a-8453-649af614710b",
    "download": "https://directus.sonmar.com.ua/assets/c7795fdf-841f-4d9a-8453-649af614710b?download",
    "size": 225880,
@@ -536,7 +554,9 @@
    "type": "Інструкція «Швидкий старт»",
    "version": "1.2.16",
    "date": "2026-11-13",
-   "lang": [],
+   "lang": [
+    "ua"
+   ],
    "families": [
     "VFS"
    ],
